@@ -65,7 +65,7 @@ class Program
         }
         else
         {
-            Console.WriteLine("Don't give up! Keep working hard and you'll get it next time.");
+            Console.WriteLine("Don't give up! If u are not failing then you are not trying at all keep tyring and u will pass.");
         }
     }
 }
