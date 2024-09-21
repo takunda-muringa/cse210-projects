@@ -4,15 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        // 1: The percantage grade
+        // 1 : Display the welcome message
+        Console.WriteLine("WELCOME TO THE BYUI GRADING PROGRAMME!");
+
+        //  2: Ask the user for the percentage
         Console.Write("Enter your grade percentage: ");
         int percentage = int.Parse(Console.ReadLine());
 
-        // 2: Add to your code the ability to include a "+" or "-" next to the letter grade
+        // 3: Add to your code the ability to include a "+" or "-" next to the letter grade
         string letter = "";
         string sign = "";
 
-        // 3: Determine the letter grade
+        // 4: Determine the letter grade
         if (percentage >= 90)
         {
             letter = "A";
@@ -34,7 +37,7 @@ class Program
             letter = "F";
         }
 
-        // 4: Determine if the grade has a + or -
+        // 5: Determine if the grade has a + or -
         int lastDigit = percentage % 10;
         if (letter != "A" && letter != "F")  // A+ and F+/- do not exist
         {
@@ -52,17 +55,17 @@ class Program
             sign = "-";  // A- exists
         }
 
-        // 5: Print the letter grade with sign
+        // 6: Print the letter grade with sign
         Console.WriteLine($"Your grade is: {letter}{sign}");
 
-        // 6: Check if the student passed or failed/U can also use the letters instead of >70 u can use >C
+        // 7: Check if the user passed or failed
         if (percentage >= 70)
         {
             Console.WriteLine("Congratulations, you passed the class!");
         }
         else
         {
-            Console.WriteLine("Don't give up! If u are not failing you are not trying, Keep trying u will get it.");
+            Console.WriteLine("Don't give up! Keep working hard and you'll get it next time.");
         }
     }
 }
