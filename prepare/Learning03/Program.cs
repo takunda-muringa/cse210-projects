@@ -4,8 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        string school = "BYUI";
-        Console.WriteLine($" I'm studying at {school}.");
+        Console.WriteLine("Hello Learning05 World!");
     }
 }
-
