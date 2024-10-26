@@ -5,68 +5,41 @@ class Program
 {
     static void Main(string[] args)
     {
-        // 1 : Display the welcome message
-        Console.WriteLine("WELCOME TO TAKUNA'S JOURNAL");
+        // Create a list to store videos
+        List<Video> videos = new List<Video>();
 
-        Journal myJournal = new Journal();
-        List<string> prompts = new List<string>
+        // Create some Video instances
+        Video video1 = new Video("Learning C#", "John Doe", 300);
+        video1.AddComment(new Comment("Alice", "Great tutorial!"));
+        video1.AddComment(new Comment("Bob", "Thanks for the help."));
+        video1.AddComment(new Comment("Charlie", "I learned a lot."));
+        
+        Video video2 = new Video("Understanding Abstraction", "Jane Smith", 450);
+        video2.AddComment(new Comment("David", "This really clears things up."));
+        video2.AddComment(new Comment("Eve", "Very helpful examples."));
+        
+        Video video3 = new Video("OOP Principles", "Mike Johnson", 600);
+        video3.AddComment(new Comment("Frank", "I love the way you explain!"));
+        video3.AddComment(new Comment("Grace", "Awesome content!"));
+
+        // Add videos to the list
+        videos.Add(video1);
+        videos.Add(video2);
+        videos.Add(video3);
+
+        // Display information for each video
+        foreach (var video in videos)
         {
-            "Who was the most interesting person you interacted with today?",
-            "What was the best part of your day?",
-            "How did you see the hand of the Lord in your life today?",
-            "What was the strongest emotion you felt today?",
-            "If you had one thing you could do over today, what would it be?"
-        };
-
-        // Use the while statement....
-
-        while (true)
-        {
-            Console.WriteLine("Please select an option:");
-            Console.WriteLine("1. Write a new entry");
-            Console.WriteLine("2. Display the journal");
-            Console.WriteLine("3. Save the journal to a file");
-            Console.WriteLine("4. Load the journal from a file");
-            Console.WriteLine("5. Quit");
-
-            string choice = Console.ReadLine();
-
-            //Use the if statement
-
-            if (choice == "1")
+            Console.WriteLine($"Title: {video.GetTitle()}");
+            Console.WriteLine($"Author: {video.GetAuthor()}");
+            Console.WriteLine($"Length: {video.GetLength()} seconds");
+            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
+            Console.WriteLine("Comments:");
+            foreach (var comment in video.GetComments())
             {
-                Random rand = new Random();
-                string prompt = prompts[rand.Next(prompts.Count)];
-                Console.WriteLine(prompt);
-                string response = Console.ReadLine();
-                myJournal.AddEntry(prompt, response);
+                Console.WriteLine($"- {comment.GetCommenterName()}: {comment.GetText()}");
             }
-            else if (choice == "2")
-            {
-                myJournal.DisplayJournal();
-            }
-            else if (choice == "3")
-            {
-                Console.Write("Enter a filename to save the journal: ");
-                string fileName = Console.ReadLine();
-                myJournal.SaveJournal(fileName);
-                Console.WriteLine("Journal saved.");
-            }
-            else if (choice == "4")
-            {
-                Console.Write("Enter a filename to load the journal: ");
-                string fileName = Console.ReadLine();
-                myJournal.LoadJournal(fileName);
-                Console.WriteLine("Journal loaded.");
-            }
-            else if (choice == "5")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice, please try again.");
-            }
+            Console.WriteLine(); // Blank line for spacing
         }
     }
 }
